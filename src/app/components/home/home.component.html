@@ -1,0 +1,57 @@
+<div class="header">
+  <app-logo></app-logo>
+  <div class="user-menu">
+    <span (click)="navigateToLogin()">Login</span>
+    <button routerLink="/login">
+      <img src="assets/user.png" alt="User icon">
+    </button>
+  </div>
+</div>
+
+<div class="main-content">
+  <!-- Contenedor de búsqueda y resultado -->
+  <div class="search-container">
+    <div class="search-section">
+      <h3>Introduzca la palabra a buscar</h3>
+      <input [(ngModel)]="searchTerm" placeholder="Introduzca la palabra a buscar">
+      <button (click)="search()">Buscar</button>
+    </div>
+
+    <div class="alphabet">
+      <button *ngFor="let letter of letters" (click)="searchByLetter(letter)">
+        {{ letter }}
+      </button>
+    </div>
+
+    <!-- Mostrar resultados -->
+    <div class="result-section" *ngIf="results$ | async as results">
+      <h3>Resultados de búsqueda:</h3>
+      <ul>
+        <li *ngFor="let result of results">
+          <strong>{{ result.word }}</strong>: {{ result.definition }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Menú lateral de opciones -->
+  <div class="sidebar">
+    <ul>
+      <li>📚 Edición del Tricentenario</li>
+      <li>❓ Guía de consulta</li>
+      <li>📝 Modo de cita</li>
+      <li>🌍 UNIDRAE</li>
+      <li>📈 Consultas lingüísticas</li>
+      <li>📅 Actualización 2023</li>
+    </ul>
+    <div class="word-of-day">
+      <h4>Palabra del día</h4>
+      <p><strong>exantema</strong></p>
+      <p>lunes, 28 de octubre de 2024</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Todos los derechos reservados a Vicpoo 2024
+</footer>

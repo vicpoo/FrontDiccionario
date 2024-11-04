@@ -1,0 +1,15 @@
+<div class="background">
+  <div class="login-wrapper">
+    <div class="login-container">
+      <app-logo></app-logo>
+      <h2>Iniciar sesión</h2>
+      <div class="input-group">
+        <input [(ngModel)]="username" placeholder="Nombre de usuario">
+      </div>
+      <div class="input-group">
+        <input [(ngModel)]="password" type="password" placeholder="Contraseña">
+      </div>
+      <button (click)="login()">Ingresar</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="add-word-container">
+  <h3>{{ word.word_id ? 'Editar Palabra' : 'Agregar Palabra' }}</h3>
+  <input [(ngModel)]="word.word" placeholder="Palabra" />
+  <textarea [(ngModel)]="word.definition" placeholder="Significado de la palabra"></textarea>
+  <button (click)="addOrUpdateWord()">{{ word.word_id ? 'Guardar Cambios' : 'Agregar' }}</button>
+</div>

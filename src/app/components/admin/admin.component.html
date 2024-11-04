@@ -1,0 +1,17 @@
+<div class="admin-container">
+  <div class="header">
+    <app-logo></app-logo>
+    <div class="user-menu">
+      <button routerLink="/home">inicio</button>
+    </div>
+  </div>
+
+  <div class="admin-content">
+    <div class="add-word-section">
+      <app-add-word [word]="selectedWord" (wordSaved)="clearSelectedWord()"></app-add-word>
+    </div>
+    <div class="word-list-section">
+      <app-word-list (editWordEvent)="onEditWord($event)"></app-word-list>
+    </div>
+  </div>
+</div>

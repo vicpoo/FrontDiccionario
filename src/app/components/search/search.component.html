@@ -1,0 +1,13 @@
+<div class="search-container">
+  <!-- Campo de entrada de búsqueda -->
+  <input [(ngModel)]="searchTerm" placeholder="Introduce la palabra a buscar" />
+
+  <!-- Botón de búsqueda -->
+  <button (click)="search()">Buscar</button>
+
+  <!-- Mostrar solo el resultado específico si existe -->
+  <div *ngIf="result">
+    <h3>{{ result.word }}</h3>
+    <p>{{ result.definition }}</p>
+  </div>
+</div>

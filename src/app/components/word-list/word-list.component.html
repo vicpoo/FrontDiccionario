@@ -1,0 +1,10 @@
+<div class="word-list-container">
+  <div *ngFor="let word of displayedWords" class="word-item">
+    <span>{{ word.word }}</span>
+    <div class="actions">
+      <button (click)="deleteWord(word.word_id)">ELIMINAR</button>
+      <button (click)="editWord(word)">EDITAR</button>
+    </div>
+  </div>
+  <button *ngIf="currentIndex < words.length" (click)="loadMoreWords()">Ver más</button>
+</div>
