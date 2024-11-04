@@ -1,3 +1,4 @@
+// dictionary.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -15,9 +16,9 @@ export class DictionaryService {
     return this.http.get(`${this.apiUrl}/search/${term}`);
   }
 
-  // Método para buscar palabras por letra inicial
+  // Método actualizado para buscar palabras por letra inicial en el formato correcto
   searchWordsByInitial(letter: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}?initial=${letter}`);
+    return this.http.get(`${this.apiUrl}/filter/${letter}`);
   }
 
   // Método para agregar una nueva palabra

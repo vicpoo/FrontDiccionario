@@ -1,3 +1,4 @@
+// home.component.ts
 import { Component } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -24,24 +25,21 @@ import { Observable } from 'rxjs';
 export class HomeComponent {
   searchTerm: string = '';
   letters: string[] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-  results$: Observable<any> | null = null; // Usamos Observable para los resultados
+  results$: Observable<any> | null = null;
 
   constructor(
     private dictionaryService: DictionaryService, 
-    private router: Router // Combinamos el servicio Router en el mismo constructor
+    private router: Router
   ) {}
 
   search() {
-    // Llamada al servicio para buscar una palabra completa y almacenar el observable en results$
     this.results$ = this.dictionaryService.searchWord(this.searchTerm);
   }
 
   searchByLetter(letter: string) {
-    // Llamada al servicio para buscar palabras por letra inicial y almacenar el observable en results$
     this.results$ = this.dictionaryService.searchWordsByInitial(letter);
   }
 
-  // Función para navegar al LoginComponent
   navigateToLogin() {
     this.router.navigate(['/login']);
   }
